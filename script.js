@@ -86,12 +86,18 @@ const textPath = textEl.querySelector('textPath');
 const originalText = textPath.firstChild.textContent;
 const hoverText = 'Verein, der Raum für Ideen schafft • '.repeat(40);
 
+let leaveTimer = null;
+
 textEl.addEventListener('mouseenter', () => {
+	if (leaveTimer) { clearTimeout(leaveTimer); leaveTimer = null; }
 	textPath.firstChild.textContent = hoverText;
 });
 
 textEl.addEventListener('mouseleave', () => {
-	textPath.firstChild.textContent = originalText;
+	leaveTimer = setTimeout(() => {
+		textPath.firstChild.textContent = originalText;
+		leaveTimer = null;
+	}, 80);
 });
 
 let textIsHover = false;
