@@ -1,0 +1,525 @@
+﻿@font-face {
+	font-family: 'Generic';
+	src: url('fonts/Generic-G20-FR-Classic-DEMO.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'bianzhidai';
+	src: url('fonts/bianzhidai_noBG-Base.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Velvelyne';
+	src: url('fonts/Velvelyne-Light.woff2') format('woff2');
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: 'Velvelyne';
+	src: url('fonts/Velvelyne-Book.woff2') format('woff2');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Velvelyne';
+	src: url('fonts/Velvelyne-Regular.woff2') format('woff2');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Velvelyne';
+	src: url('fonts/Velvelyne-Bold.woff2') format('woff2');
+	font-weight: bold;
+}
+
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	cursor: none;
+	background-color: #111108;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+#grid {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+svg:not(#grid) {
+	display: block;
+	width: 100vw;
+	height: calc(100vh - 1rem);
+}
+
+text {
+	fill: #225107;
+	font-family: 'Velvelyne', sans-serif;
+	font-size: 2.75rem;
+	letter-spacing: -0.01em;
+	transition: fill 0.3s ease;
+	font-weight: normal;
+}
+
+text:hover {
+	fill: #f5f5f5;
+	font-family: 'Velvelyne', sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.01em;
+}
+
+svg:not(#grid) path {
+	fill: none;
+	stroke: none;
+}
+
+#projekte-overlay,
+#impressum-overlay,
+#ueber-overlay {
+	position: fixed;
+	top: 1.25rem;
+	bottom: 1.25rem;
+	border-radius: 2rem;
+	padding: 1.25rem;
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+#projekte-overlay {
+	background: #8C737C;
+	color: #f5f5f5;
+}
+
+#impressum-overlay {
+	background: #f5f5f5;
+	color: #222222;
+}
+
+#ueber-overlay {
+	background: #285E5E;
+	color: #f5f5f5;
+}
+
+#impressum-overlay[hidden],
+#ueber-overlay[hidden] {
+	display: none;
+}
+
+.pill.ueber-title {
+	font-size: 2.6rem;
+	padding: 0.5rem 2rem;
+	align-self: flex-start;
+}
+
+.impressum-content,
+.ueber-content {
+	overflow-y: auto;
+	flex: 1;
+	font-family: 'Velvelyne', sans-serif;
+	font-weight: 300;
+	font-size: 1rem;
+	margin-top: 1rem;
+}
+
+.ueber-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+
+.impressum-content h2 {
+	padding-left: 2.5rem;
+	padding-right: 2rem;
+	margin: 0.5rem 0 0 0;
+}
+
+.impressum-content p {
+	padding-left: 2.5rem;
+	padding-right: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	margin: 0;
+	font-weight: 300;
+}
+
+.pill--black {
+	background: #222222;
+	color: #f5f5f5;
+}
+
+.pill.impressum-title {
+	font-size: 2.6rem;
+	padding: 0.5rem 2rem;
+}
+
+.impressum-text {
+	font-family: 'Velvelyne', sans-serif;
+	font-size: 1rem;
+	margin: 0;
+}
+
+.email::after {
+	content: attr(data-user) "@" attr(data-domain);
+}
+
+#impressum-close,
+#ueber-close {
+	position: absolute;
+	top: 1.6rem;
+	right: 1.6rem;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	cursor: none;
+	line-height: 1;
+	padding: 0;
+}
+
+#impressum-close {
+	color: #222222;
+}
+
+#ueber-close {
+	color: #f5f5f5;
+}
+
+.projekte-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin-top: 1rem;
+	overflow-y: auto;
+	flex: 1;
+}
+
+.projekt-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.projekt-pill {
+	display: inline-block;
+	background: #D44F1A;
+	color: #222222;
+	font-family: 'bianzhidai', sans-serif;
+	font-size: 2.6rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	padding: 0.5rem 2rem;
+	border-radius: 999px;
+	white-space: nowrap;
+	align-self: flex-start;
+}
+
+.projekt-text {
+	color: #f5f5f5;
+	font-family: 'Velvelyne', sans-serif;
+	font-size: 1rem;
+	font-weight: 300;
+	margin: 0;
+	padding-left: 2.5rem;
+	padding-right: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	hyphens: auto;
+	overflow-wrap: break-word;
+}
+
+#projekte-overlay[hidden] {
+	display: none;
+
+}
+
+#projekte-close {
+	position: absolute;
+	top: 1.6rem;
+	right: 1.6rem;
+	background: none;
+	border: none;
+	color: #f5f5f5;
+	font-size: 2rem;
+	cursor: none;
+	line-height: 1;
+	padding: 0;
+}
+
+#cursor {
+	position: fixed;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: #f5f5f5;
+	mix-blend-mode: difference;
+	pointer-events: none;
+	z-index: 99999;
+	transform: translate(-50%, -50%);
+}
+
+/* Pill buttons */
+.pill {
+	display: inline-block;
+	box-sizing: border-box;
+	border-radius: 999px;
+	font-family: 'bianzhidai', sans-serif;
+	font-size: 2.6rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	padding: 0.5rem 2rem;
+	cursor: pointer;
+	border: none;
+	z-index: 9999;
+	white-space: nowrap;
+}
+
+.pill--orange {
+	position: fixed;
+	background: #D44F1A;
+	color: #202020;
+	top: 1.25rem;
+	right: 1.25rem;
+}
+
+.pill-group {
+	position: fixed;
+	left: 1.25rem;
+	bottom: 1.25rem;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 0rem;
+	align-items: stretch;
+}
+
+.pill--yellow {
+	background: #E8C832;
+	color: #222222;
+}
+
+/* Plain white imprint text (not a button) */
+.imprint {
+	position: fixed;
+	bottom: 1.25rem;
+	right: 1.25rem;
+	color: #f5f5f5;
+	font-family: 'Generic', sans-serif;
+	font-size: 0.875rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	z-index: 9999;
+	background: none;
+	padding: 0;
+	cursor: default;
+}
+
+/* Imprint button */
+.imprint {
+      position: fixed;
+      font-family: 'Inter', sans-serif;
+      color: #f5f5f5;
+      font-weight: 500;
+}
+
+/* Kontakt */
+#kontakt-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+
+#kontakt-overlay[hidden] {
+	display: none;
+}
+
+#kontakt-brief {
+	display: grid;
+}
+
+.brief-layer {
+	grid-area: 1 / 1;
+	width: 80vw;
+	max-height: 80vh;
+	object-fit: contain;
+}
+
+#kontakt-gruppe {
+	grid-area: 1 / 1;
+	display: grid;
+	cursor: pointer;
+	transition: transform 0.6s ease;
+}
+
+#kontakt-gruppe.open {
+	transform: translateY(-26%);
+}
+
+#kontakt-gruppe .brief-layer {
+	grid-area: 1 / 1;
+}
+
+#kontakt-content-under,
+#kontakt-content-over {
+	grid-area: 1 / 1;
+	position: relative;
+	pointer-events: none;
+}
+
+#kontakt-content-under { z-index: 1; }
+.brief-fg              { z-index: 2; pointer-events: none; }
+#kontakt-content-over  { z-index: 3; }
+
+#kontakt-schreib,
+#kontakt-mail {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: 'Velvelyne', sans-serif;
+	font-size: 1.5rem;
+	color: #222222;
+	white-space: nowrap;
+}
+
+#kontakt-pfeil {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 1.5rem;
+	color: #222222;
+}
+
+#kontakt-schreib { top: 37%; }
+#kontakt-pfeil   { top: 48%; }
+#kontakt-mail    { top: 62%; }
+
+#kontakt-close {
+	position: fixed;
+	left: 65%;
+	top: 18%;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	border: none;
+	background: #2C4C4D;
+	color: #f5f5f5;
+	font-family: 'Inter', sans-serif;
+	font-size: 1.2rem;
+	cursor: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1001;
+	font-weight: 300;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	text {
+		font-size: 4rem;
+	}
+
+	.pill--orange {
+		left: 1.25rem;
+		right: 1.25rem;
+		text-align: center;
+	}
+
+	.pill-group {
+		right: 1.25rem;
+		gap: 0;
+	}
+
+	.pill-group .pill {
+		text-align: center;
+	}
+
+	.imprint {
+		display: none;
+	}
+
+	#projekte-overlay,
+	#impressum-overlay,
+	#ueber-overlay {
+		top: 6rem;
+		bottom: 10.3rem;
+	}
+
+	.brief-layer {
+		width: 200vw;
+	}
+
+	.projekt-pill,
+	.pill.ueber-title,
+	.pill.impressum-title {
+		font-size: 1.5rem;
+		align-self: center;
+		top: 1rem;
+	}
+
+	#projekte-close,
+	#impressum-close {
+		top: 0.75rem;
+		right: 1.75rem;
+		font-size:1.25rem;
+	}
+	
+	#ueber-close {
+		top: 2.75rem;
+		right: 1.75rem;
+		font-size:1.25rem;
+	}
+}
+
+/* Scrollbars */
+.projekte-list,
+.ueber-content,
+.impressum-content {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+
+.impressum-content {
+	scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.projekte-list::-webkit-scrollbar,
+.ueber-content::-webkit-scrollbar,
+.impressum-content::-webkit-scrollbar {
+	width: 4px;
+}
+
+.projekte-list::-webkit-scrollbar-track,
+.ueber-content::-webkit-scrollbar-track,
+.impressum-content::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.projekte-list::-webkit-scrollbar-thumb,
+.ueber-content::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 999px;
+}
+
+.impressum-content::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 999px;
+}
