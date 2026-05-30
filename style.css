@@ -517,7 +517,6 @@ svg:not(#grid) path {
 
 	.brief-layer {
 		width: 200vw;
-		padding-bottom: 3rem;
 	}
 
 	.projekt-pill,
@@ -552,6 +551,10 @@ svg:not(#grid) path {
 
 	.projekt-tags {
 		padding-left: 0.75rem;
+	}
+
+	#kontakt-gruppe {
+		padding-bottom: 3rem;
 	}
 
 	#kontakt-close {

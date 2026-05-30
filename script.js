@@ -48,7 +48,20 @@ document.getElementById('btn-kontakt').addEventListener('click', () => {
 });
 
 kontaktGruppe.addEventListener('click', () => {
-	kontaktGruppe.classList.toggle('open');
+	if (kontaktGruppe.classList.contains('open')) {
+		kontaktGruppe.classList.remove('open');
+		kontaktGruppe.style.transform = '';
+	} else {
+		const mailEl = document.getElementById('kontakt-mail');
+		const mailRect = mailEl.getBoundingClientRect();
+		const padding = 24;
+		const overflow = mailRect.bottom + padding - window.innerHeight;
+		const translateY = overflow > 0
+			? -overflow
+			: -0.26 * kontaktGruppe.offsetHeight;
+		kontaktGruppe.style.transform = `translateY(${translateY}px)`;
+		kontaktGruppe.classList.add('open');
+	}
 });
 
 document.getElementById('kontakt-close').addEventListener('click', () => { kontaktOverlay.hidden = true; });
