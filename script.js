@@ -58,6 +58,22 @@ document.addEventListener('mousemove', e => {
 	cursor.style.top = e.clientY + 'px';
 });
 
+document.addEventListener('selectionchange', () => {
+	document.querySelectorAll('.selection-rect').forEach(el => el.remove());
+	const sel = window.getSelection();
+	if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+	const rects = sel.getRangeAt(0).getClientRects();
+	for (const rect of rects) {
+		const div = document.createElement('div');
+		div.className = 'selection-rect';
+		div.style.left = rect.left + 'px';
+		div.style.top = rect.top + 'px';
+		div.style.width = rect.width + 'px';
+		div.style.height = rect.height + 'px';
+		document.body.appendChild(div);
+	}
+});
+
 const mainSvg = document.querySelector('svg:not(#grid)');
 const motionPath = document.getElementById('motionPath');
 const desktopD = motionPath.getAttribute('d');

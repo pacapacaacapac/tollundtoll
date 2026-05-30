@@ -229,18 +229,19 @@ svg:not(#grid) path {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.2rem;
-	padding-left: 1.7rem;
-	padding-top: 0.7rem;
+	padding-left: 1.9rem;
+	padding-top: 0.3rem;
 }
 
 .projekt-tag {
 	background: #222222;
 	color: #f5f5f5;
 	font-family: 'Velvelyne', sans-serif;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	font-weight: 300;
-	padding: 0.15rem 0.8rem;
+	padding: 0rem 0.66rem;
 	border-radius: 999px;
+	text-transform: uppercase;
 }
 
 .projekt-text {
@@ -251,7 +252,7 @@ svg:not(#grid) path {
 	margin: 0;
 	padding-left: 2.5rem;
 	padding-right: 2rem;
-	padding-top: 0.5rem;
+	padding-top: 0.1rem;
 	padding-bottom: 0.5rem;
 	hyphens: auto;
 	overflow-wrap: break-word;
@@ -273,6 +274,18 @@ svg:not(#grid) path {
 	cursor: none;
 	line-height: 1;
 	padding: 0;
+}
+
+::selection {
+	background: transparent;
+}
+
+.selection-rect {
+	position: fixed;
+	background: #f5f5f5;
+	mix-blend-mode: difference;
+	pointer-events: none;
+	z-index: 99998;
 }
 
 #cursor {
@@ -352,6 +365,10 @@ svg:not(#grid) path {
       font-family: 'Inter', sans-serif;
       color: #c0c0c0;
       font-weight: 500;
+}
+
+.imprint-mobile {
+	display: none;
 }
 
 /* Kontakt */
@@ -463,6 +480,7 @@ svg:not(#grid) path {
 	.pill-group {
 		right: 1.25rem;
 		gap: 0;
+		bottom: 2.2rem;
 	}
 
 	.pill-group .pill {
@@ -470,25 +488,46 @@ svg:not(#grid) path {
 	}
 
 	.imprint {
+		display: block;
+		bottom: 0.5rem;
+		left: 0;
+		right: 0;
+		text-align: center;
+		cursor: pointer;
+		font-size: 0.8rem;
+		padding-top: 0.2rem;
+		padding-bottom: 0.2rem;
+		background: linear-gradient(transparent, #111108 40%);
+	}
+
+	.imprint-desktop {
 		display: none;
+	}
+
+	.imprint-mobile {
+		display: inline;
 	}
 
 	#projekte-overlay,
 	#impressum-overlay,
 	#ueber-overlay {
 		top: 6rem;
-		bottom: 10.3rem;
+		bottom: 11rem;
 	}
 
 	.brief-layer {
 		width: 200vw;
+		padding-bottom: 3rem;
 	}
 
 	.projekt-pill,
 	.pill.ueber-title,
 	.pill.impressum-title {
 		font-size: 1.5rem;
-		align-self: center;
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
 		top: 1rem;
 	}
 
@@ -500,9 +539,34 @@ svg:not(#grid) path {
 	}
 	
 	#ueber-close {
-		top: 2.75rem;
+		top: 0.75rem;
 		right: 1.75rem;
-		font-size:1.25rem;
+		font-size: 1.25rem;
+		z-index: 10;
+	}
+
+	.projekt-text {
+		padding-left: 1rem;
+		padding-right: 0.6rem;
+	}
+
+	.projekt-tags {
+		padding-left: 0.75rem;
+	}
+
+	#kontakt-close {
+		left: calc(65% + 2rem);
+		top: calc(18% + 3rem);
+	}
+
+	html,
+	body {
+		cursor: auto;
+	}
+
+	#cursor,
+	.selection-rect {
+		display: none;
 	}
 }
 
