@@ -52,13 +52,14 @@ kontaktGruppe.addEventListener('click', () => {
 		kontaktGruppe.classList.remove('open');
 		kontaktGruppe.style.transform = '';
 	} else {
-		const mailEl = document.getElementById('kontakt-mail');
-		const mailRect = mailEl.getBoundingClientRect();
-		const padding = 24;
-		const overflow = mailRect.bottom + padding - window.innerHeight;
+		const groupRect = kontaktGruppe.getBoundingClientRect();
+		const fontSize = parseFloat(getComputedStyle(document.getElementById('kontakt-mail')).fontSize);
+		const emailBottom = groupRect.top + 0.62 * groupRect.height + fontSize * 1.5;
+		const padding = 32;
+		const overflow = emailBottom + padding - window.innerHeight;
 		const translateY = overflow > 0
 			? -overflow
-			: -0.26 * kontaktGruppe.offsetHeight;
+			: -0.26 * groupRect.height;
 		kontaktGruppe.style.transform = `translateY(${translateY}px)`;
 		kontaktGruppe.classList.add('open');
 	}
