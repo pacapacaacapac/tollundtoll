@@ -67,7 +67,7 @@ svg:not(#grid) {
 text {
 	fill: #225107;
 	font-family: 'Velvelyne', sans-serif;
-	font-size: 2.75rem;
+	font-size: 2.6rem;
 	letter-spacing: -0.01em;
 	transition: fill 0.3s ease;
 	font-weight: normal;
@@ -117,9 +117,10 @@ svg:not(#grid) path {
 }
 
 .pill.ueber-title {
-	font-size: 2.6rem;
-	padding: 0.5rem 2rem;
+	font-size: 2.4rem;
+	padding: 0.5rem 2.5rem;
 	align-self: flex-start;
+	margin-bottom: 1rem;
 }
 
 .impressum-content,
@@ -137,6 +138,7 @@ svg:not(#grid) path {
 	flex-direction: column;
 	gap: 0.4rem;
 }
+
 
 
 .impressum-content h2 {
@@ -160,8 +162,8 @@ svg:not(#grid) path {
 }
 
 .pill.impressum-title {
-	font-size: 2.6rem;
-	padding: 0.5rem 2rem;
+	font-size: 2.4rem;
+	padding: 0.5rem 2.5rem;
 }
 
 .impressum-text {
@@ -215,11 +217,11 @@ svg:not(#grid) path {
 	background: #D44F1A;
 	color: #222222;
 	font-family: 'bianzhidai', sans-serif;
-	font-size: 2.6rem;
+	font-size: 2.4rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	padding: 0.5rem 2rem;
+	padding: 0.5rem 2.5rem;
 	border-radius: 999px;
 	white-space: nowrap;
 	align-self: flex-start;
@@ -250,6 +252,7 @@ svg:not(#grid) path {
 	font-size: 1rem;
 	font-weight: 300;
 	margin: 0;
+	margin-top: 0.4rem;
 	padding-left: 2.5rem;
 	padding-right: 2rem;
 	padding-top: 0.1rem;
@@ -306,11 +309,11 @@ svg:not(#grid) path {
 	box-sizing: border-box;
 	border-radius: 999px;
 	font-family: 'bianzhidai', sans-serif;
-	font-size: 2.6rem;
+	font-size: 2.4rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	padding: 0.5rem 2rem;
+	padding: 0.5rem 2.5rem;
 	cursor: pointer;
 	border: none;
 	z-index: 9999;
@@ -428,7 +431,7 @@ svg:not(#grid) path {
 	left: 50%;
 	transform: translateX(-50%);
 	font-family: 'Velvelyne', sans-serif;
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	color: #222222;
 	white-space: nowrap;
 }
@@ -606,4 +609,32 @@ svg:not(#grid) path {
 .impressum-content::-webkit-scrollbar-thumb {
 	background: rgba(0, 0, 0, 0.3);
 	border-radius: 999px;
+}
+
+
+/* Konsistente Font-Größen für alle Desktop-Auflösungen, kalibriert auf 1400x900 */
+@media (min-width: 769px) {
+	.pill,
+	.projekt-pill,
+	.pill.ueber-title,
+	.pill.impressum-title {
+		font-size: 3.2vw;
+		padding: 0.6vw 2.9vw;
+	}
+
+	.impressum-content,
+	.ueber-content,
+	.projekt-text {
+		font-size: 1.2vw;
+	}
+
+	.projekt-tag {
+		font-size: 0.95vw;
+	}
+}
+
+@media (min-width: 1920px) {
+	.imprint {
+		font-size: 1rem;
+	}
 }
